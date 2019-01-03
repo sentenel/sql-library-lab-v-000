@@ -29,9 +29,11 @@ def select_series_title_with_most_human_characters
   LEFT JOIN characters ON series.id = characters.series_id
   GROUP BY characters.species
   ORDER BY COUNT(characters.species)
-  LIMIT 1"
+  LIMIT 1;"
 end
 
 def select_character_names_and_number_of_books_they_are_in
-  "Write your SQL query here"
+  "SELECT characters.name, COUNT(characters_books.book_id) FROM characters
+  LEFT JOIN characters_books ON characters.id = characters_books.character_id
+  GROUP BY characters.name;"
 end
